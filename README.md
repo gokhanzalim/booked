@@ -12,6 +12,8 @@ This project is based on the Spring Boot project and uses these packages :
 
 - Spring Cloud Eureka Server
 
+- Spring Cloud Feign Client
+
 - Spring Data Elasticsearch
 
 - Spring Data Cassandra
