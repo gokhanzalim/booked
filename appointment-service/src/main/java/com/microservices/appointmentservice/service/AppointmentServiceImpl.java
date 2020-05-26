@@ -36,18 +36,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         if (customerDto != null){
             nameSurname = customerDto.getBody().getName() + " " + customerDto.getBody().getSurname();
-            System.out.println(appointment.toString());
+            appointmentDto.setCustomerId(customerDto.getBody().getId());
+            appointmentDto.setCustomerName(nameSurname);
         }
 
+
         appointmentRepository.save(appointment);
-
-        AppointmentDto dto =
-                 modelMapper.map(appointment,AppointmentDto.class);
-
-        dto.setCustomerName(nameSurname);
-
-
-        return dto;
+        appointmentDto.setId(appointment.getId());
+        return appointmentDto;
     }
 
     @Transactional

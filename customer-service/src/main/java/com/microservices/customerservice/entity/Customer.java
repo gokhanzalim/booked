@@ -1,13 +1,11 @@
 package com.microservices.customerservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.UUID;
 
