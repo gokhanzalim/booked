@@ -3,8 +3,11 @@ package com.microservices.appointmentservice.service;
 import com.microservices.appointmentservice.dto.AppointmentDto;
 import com.microservices.appointmentservice.entity.Appointment;
 import com.microservices.appointmentservice.repository.AppointmentRepository;
+import com.microservices.CustomerServiceClient;
+import com.microservices.dto.CustomerDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,17 +20,34 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private final AppointmentRepository appointmentRepository;
 
+    private final CustomerServiceClient customerServiceClient;
+
     private final ModelMapper modelMapper;
 
     @Transactional
     @Override
     public AppointmentDto save(AppointmentDto appointmentDto) {
 
+        String nameSurname = "";
         Appointment appointment = modelMapper.map(appointmentDto,Appointment.class);
+
+        ResponseEntity<CustomerDto> customerDto =
+                                 customerServiceClient.get(appointmentDto.getCustomerId());
+
+        if (customerDto != null){
+            nameSurname = customerDto.getBody().getName() + " " + customerDto.getBody().getSurname();
+            System.out.println(appointment.toString());
+        }
 
         appointmentRepository.save(appointment);
 
-        return modelMapper.map(appointment,AppointmentDto.class);
+        AppointmentDto dto =
+                 modelMapper.map(appointment,AppointmentDto.class);
+
+        dto.setCustomerName(nameSurname);
+
+
+        return dto;
     }
 
     @Transactional

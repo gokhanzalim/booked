@@ -1,6 +1,8 @@
 package com.microservices.customerservice.service.impl;
 
-import com.microservices.customerservice.dto.CustomerDto;
+
+
+import com.microservices.dto.CustomerDto;
 import com.microservices.customerservice.entity.Customer;
 import com.microservices.customerservice.repositroy.CustomerRepository;
 import com.microservices.customerservice.service.CustomerService;
@@ -8,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -53,6 +54,8 @@ public class CustomerServiceImpl implements CustomerService {
             return c;
 
         }).orElseThrow(IllegalArgumentException::new);
+
+        customerRepository.save(updateCustomer);
 
         return modelMapper.map(updateCustomer,CustomerDto.class);
     }

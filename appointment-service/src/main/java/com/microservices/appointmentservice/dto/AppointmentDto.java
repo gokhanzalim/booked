@@ -24,4 +24,7 @@ public class AppointmentDto {
 
     private AppointmentStatus appointmentStatus;
 
+    private String CustomerName;
+
+
 }

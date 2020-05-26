@@ -1,6 +1,7 @@
 package com.microservices.customerservice.controller;
 
-import com.microservices.customerservice.dto.CustomerDto;
+
+import com.microservices.dto.CustomerDto;
 import com.microservices.customerservice.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

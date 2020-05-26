@@ -1,7 +1,7 @@
 package com.microservices.customerservice.service;
 
-import com.microservices.customerservice.dto.CustomerDto;
-import com.microservices.customerservice.entity.Customer;
+
+import com.microservices.dto.CustomerDto;
 
 import java.util.List;
 

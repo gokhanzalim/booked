@@ -10,6 +10,7 @@
         <module name="eureka-server" />
         <module name="place-service" />
         <module name="customer-service" />
+        <module name="service-common" />
         <module name="service-parent" />
         <module name="employee-service" />
         <module name="config-server" />
@@ -26,6 +27,7 @@
       <module name="employee-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="place-service" options="-parameters" />
+      <module name="service-common" options="-parameters" />
       <module name="service-parent" options="-parameters" />
     </option>
   </component>

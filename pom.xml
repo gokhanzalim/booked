@@ -16,6 +16,7 @@
         <module>place-service</module>
         <module>employee-service</module>
         <module>appointment-service</module>
+        <module>service-common</module>
     </modules>
 
     <parent>
